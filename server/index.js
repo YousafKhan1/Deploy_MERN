@@ -9,6 +9,10 @@ app.use(express.json())
 
 mongoose.connect('mongodb+srv://yousaf:test123@cluster0.g4i5dey.mongodb.net/?retryWrites=true&w=majority');
 
+
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
 app.post('/register', (req, res) => {
     const {name, email, password} = req.body;
     RegisterModel.findOne({email: email})
