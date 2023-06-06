@@ -4,12 +4,13 @@ const cors = require('cors')
 const RegisterModel = require('./models/Register')
 
 const app = express()
-const corsOrigin ={
-    origin:'https://deploy-mern-1whq.vercel.app',
-    credentials:true,            
-    optionSuccessStatus:200
-}
-app.use(cors(corsOrigin));
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1whq.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://yousaf:test123@cluster0.g4i5dey.mongodb.net/?retryWrites=true&w=majority');
